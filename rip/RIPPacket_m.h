@@ -105,43 +105,5 @@ class RIPPacket : public ::cMessage
 inline void doPacking(cCommBuffer *b, RIPPacket& obj) {obj.parsimPack(b);}
 inline void doUnpacking(cCommBuffer *b, RIPPacket& obj) {obj.parsimUnpack(b);}
 
-/**
- * Class generated from <tt>ansa/rip/RIPPacket.msg</tt> by opp_msgc.
- * <pre>
- * message Hovno extends RIPPacket
- * {
- *  	char kokot;   
- * }
- * </pre>
- */
-class Hovno : public ::RIPPacket
-{
-  protected:
-    char kokot_var;
-
-  private:
-    void copy(const Hovno& other);
-
-  protected:
-    // protected and unimplemented operator==(), to prevent accidental usage
-    bool operator==(const Hovno&);
-
-  public:
-    Hovno(const char *name=NULL, int kind=0);
-    Hovno(const Hovno& other);
-    virtual ~Hovno();
-    Hovno& operator=(const Hovno& other);
-    virtual Hovno *dup() const {return new Hovno(*this);}
-    virtual void parsimPack(cCommBuffer *b);
-    virtual void parsimUnpack(cCommBuffer *b);
-
-    // field getter/setter methods
-    virtual char getKokot() const;
-    virtual void setKokot(char kokot);
-};
-
-inline void doPacking(cCommBuffer *b, Hovno& obj) {obj.parsimPack(b);}
-inline void doUnpacking(cCommBuffer *b, Hovno& obj) {obj.parsimUnpack(b);}
-
 
 #endif // _RIPPACKET_M_H_
