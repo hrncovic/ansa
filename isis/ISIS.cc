@@ -2,7 +2,7 @@
  * IS-IS.cc
  *
  *  Created on: 2.4.2012
- *  Author: Matej Hrncirik
+ *  Author: Matej Hrncirik | xhrnci00
  */
 
 #include "ISIS.h"
