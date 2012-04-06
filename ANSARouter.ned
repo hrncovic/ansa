@@ -44,20 +44,20 @@ module ANSARouter
         @node();
         string routingFile = default("");
         string hostname = default("");
-        string routerId = default("");
+        string routerId;
         @display("i=srouter;bgb=482,414");
     gates:
         inout pppg[];
         inout ethg[];
     submodules:
 
-        deviceConfigurator: DeviceConfigurator {
-            parameters:
-                deviceId = deviceId;
-                deviceType = "Router";
-                configFile = configFile;
-                @display("p=395,342");
-        }
+   //     deviceConfigurator: DeviceConfigurator {
+   //         parameters:
+   //			deviceId = deviceId;
+   //           deviceType = "Router";
+   //           configFile = configFile;
+   //           @display("p=395,342");
+   //     }
         notificationBoard: NotificationBoard {
             parameters:
                 @display("p=45,42");
@@ -148,6 +148,9 @@ module ANSARouter
         ipTrafGen.ipOut --> networkLayer.rsvpIn;
         ipTrafGen.ipIn <-- networkLayer.rsvpOut;
 
+		ipSplitter.isisOut --> isis.ifIn;
+        ipSplitter.isisIn <-- isis.ifOut;
+
         //eigrp.ipOut --> networkLayer.eigrpIn;
         //eigrp.ipIn <-- networkLayer.eigrpOut;
 
@@ -163,9 +166,8 @@ module ANSARouter
 
             ipSplitter.ipv4Out[i] --> acl.ifIn[i];
             ipSplitter.ipv4In[i] <-- acl.ifOut[i];
+
             
-            ipSplitter.isisOut[i] --> isis.ifIn[i];
-            ipSplitter.isisIn[i] <-- isis.ifOut[i];
 
         }
 
@@ -180,9 +182,7 @@ module ANSARouter
 
             ipSplitter.ipv4Out[sizeof(pppg)+i] --> acl.ifIn[sizeof(pppg)+i];
             ipSplitter.ipv4In[sizeof(pppg)+i] <-- acl.ifOut[sizeof(pppg)+i];
-            
-            ipSplitter.isisOut[sizeof(pppg)+i] --> isis.ifIn[sizeof(pppg)+i];
-            ipSplitter.isisIn[sizeof(pppg)+i] <-- isis.ifOut[sizeof(pppg)+i];
+
 
         }
 
