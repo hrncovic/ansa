@@ -30,6 +30,6 @@ simple IpSplitter
         output ipv4Out[];
         input ipv6In[];
         output ipv6Out[];
-        input isisIn[];
-        output isisOut[];
+        input isisIn;
+        output isisOut;
 }

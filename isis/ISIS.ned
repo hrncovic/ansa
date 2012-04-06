@@ -21,6 +21,6 @@ simple ISIS
         @display("i=block/network2");
 
     gates:
-        input ifIn[];
-        output ifOut[];
+        input ifIn;
+        output ifOut;
 }

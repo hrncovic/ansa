@@ -18,7 +18,8 @@ using namespace std;
 class ISIS : public cSimpleModule
 {
 protected:
-    void handleMessage(cMessage* msg);
+    virtual void initialize();
+    virtual void handleMessage(cMessage* msg);
 
 };
 

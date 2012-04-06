@@ -7,6 +7,18 @@
 
 #include "ISIS.h"
 
+Define_Module(ISIS);
+
+void ISIS::initialize()
+{
+    ISISL1HelloPacket *msg = new ISISL1HelloPacket("hello");
+
+    send(msg, "ifOut");
+
+}
+
+
+
 void ISIS::handleMessage(cMessage* msg)
 {
 
@@ -19,6 +31,8 @@ void ISIS::handleMessage(cMessage* msg)
         //cMessage *MsgCopy = msg->dup();
         ev << "received packet\n";
     }
+
+
 
 
 }

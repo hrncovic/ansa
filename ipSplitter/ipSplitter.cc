@@ -49,7 +49,7 @@ void IpSplitter::handleMessage(cMessage *msg){
 		}
 		else
 		{
-		    if(dynamic_cast<ISIS *>(msg))
+		    if(dynamic_cast<ISISL1HelloPacket *>(msg))
 		    {
 		        this->send(msg, "isisOut", gateIndex);
 		    }
